@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~    Copyright 2019 Xuqiang ZHENG
+  ~
+  ~    Licensed under the Apache License, Version 2.0 (the "License");
+  ~    you may not use this file except in compliance with the License.
+  ~    You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~    Unless required by applicable law or agreed to in writing, software
+  ~    distributed under the License is distributed on an "AS IS" BASIS,
+  ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~    See the License for the specific language governing permissions and
+  ~    limitations under the License.
+  -->
+
+<resources>
+    <declare-styleable name="OffDutyView">
+        <attr name="odvAnchor" format="reference"/>
+        <attr name="odvAnchorOffsetX" format="dimension" />
+        <attr name="odvAnchorOffsetY" format="dimension" />
+        <attr name="odvSize" format="dimension" />
+        <attr name="odvColor" format="color"/>
+        <attr name="odvText" format="string"/>
+        <attr name="odvTextColor" format="color" />
+        <attr name="odvTextSize" format="dimension" />
+        <attr name="odvDisplayText" format="boolean"/>
+        <attr name="odvPaddingTop" format="dimension"/>
+        <attr name="odvPaddingBottom" format="dimension"/>
+        <attr name="odvPaddingLeft" format="dimension"/>
+        <attr name="odvPaddingRight" format="dimension"/>
+        <attr name="odvDraggable" format="boolean" />
+    </declare-styleable>
+    
+    <declare-styleable name="OffDutyDelegate">
+        <attr name="oddBezierColor" format="color" />
+        <attr name="oddBezierColorOverlay" format="boolean" />
+        <attr name="oddMaxDistance" format="dimension" />
+    </declare-styleable>
+
+    <color name="md_red_500">#F44336</color>
+
+    <dimen name="default_size">12dp</dimen>
+    <dimen name="normal_text_size">14sp</dimen>
+    <dimen name="small_text_size">12sp</dimen>
+</resources>
