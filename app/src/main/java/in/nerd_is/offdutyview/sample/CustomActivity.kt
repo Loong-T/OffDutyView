@@ -30,7 +30,7 @@ class CustomActivity : AppCompatActivity() {
             customOffDutyImageView.resetView()
         }
 
-        customOffDutyImageView.setOnClickListener {
+        customOffDutyImageView.setOnOffDutyListener {
            toast("Button clicked")
         }
     }
