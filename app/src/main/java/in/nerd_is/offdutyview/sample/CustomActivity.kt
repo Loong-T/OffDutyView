@@ -16,29 +16,26 @@
 
 package `in`.nerd_is.offdutyview.sample
 
-import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_custom.*
 
-class MainActivity : AppCompatActivity() {
+class CustomActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_custom)
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
+        btnReset.setOnClickListener {
+            customOffDutyImageView.resetView()
+        }
 
-    btnSimple.setOnClickListener {
-      startActivity(SimpleActivity::class.java)
+        customOffDutyImageView.setOnClickListener {
+           toast("Button clicked")
+        }
     }
-    btnList.setOnClickListener {
-      startActivity(ListActivity::class.java)
-    }
-    btnCustom.setOnClickListener {
-      startActivity(CustomActivity::class.java)
-    }
-  }
 
-  private fun startActivity(clazz: Class<*>) {
-    startActivity(Intent(this, clazz))
-  }
+    private fun toast(string: String) {
+        Toast.makeText(this, string, Toast.LENGTH_SHORT).show()
+    }
 }

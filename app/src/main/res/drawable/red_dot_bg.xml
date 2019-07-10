@@ -15,12 +15,6 @@
   ~    limitations under the License.
   -->
 
-<resources>
-    <declare-styleable name="OffDutyDelegate">
-        <attr name="oddBezierColor" format="color" />
-        <attr name="oddBezierColorOverlay" format="boolean" />
-        <attr name="oddMaxDistance" format="dimension" />
-    </declare-styleable>
-
-    <color name="md_red_500">#F44336</color>
-</resources>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+    <solid android:color="@color/md_red_500" />
+</shape>

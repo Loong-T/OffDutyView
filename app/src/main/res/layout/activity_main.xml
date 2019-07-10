@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~    Copyright 2019 Xuqiang ZHENG
   ~
   ~    Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,46 +14,41 @@
   ~    limitations under the License.
   -->
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <in.nerd_is.offdutyview.OffDutyTextView
-        android:id="@+id/offDutyTextView"
-        android:layout_width="48dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="168dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@drawable/bg"
-        android:text="7"
-        android:textAlignment="center"
-        android:textColor="#41e9ff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:oddBezierColor="#41e9ff"
-        app:oddMaxDistance="128dp" />
+    android:orientation="vertical">
 
     <Button
-        android:id="@+id/btnReset"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnSimple"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Reset"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/offDutyTextView" />
+        android:background="?attr/selectableItemBackground"
+        android:gravity="start|center_vertical"
+        android:padding="16dp"
+        android:text="Simple"
+        android:textAlignment="textStart"
+        android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/btnList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="start|center_vertical"
+        android:padding="16dp"
+        android:text="In List"
+        android:textAlignment="textStart"
+        android:textAllCaps="false" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btnCustom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="start|center_vertical"
+        android:padding="16dp"
+        android:text="Custom View"
+        android:textAlignment="textStart"
+        android:textAllCaps="false" />
+</LinearLayout>

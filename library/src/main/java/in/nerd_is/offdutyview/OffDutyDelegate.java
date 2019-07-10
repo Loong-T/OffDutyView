@@ -34,6 +34,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
@@ -55,6 +56,8 @@ public class OffDutyDelegate {
     private BezierView bezierView;
     @Nullable
     private OnOffDutyListener onOffDutyListener;
+    @Nullable
+    private OnCancelListener onCancelListener;
 
     private boolean bezierColorOverlay;
     @ColorInt
@@ -92,6 +95,13 @@ public class OffDutyDelegate {
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                // for draggable in RecyclerView
+                ViewParent parent = view.getParent();
+                if(parent == null){
+                    return false;
+                }
+                parent.requestDisallowInterceptTouchEvent(true);
+
                 bezierView.add();
                 bezierView.setTouchPoint(event.getX(), event.getY());
                 bezierView.updateMovingPosition(event.getRawX(), event.getRawY());
@@ -113,6 +123,35 @@ public class OffDutyDelegate {
 
     public void setOnOffDutyListener(@Nullable OnOffDutyListener onOffDutyListener) {
         this.onOffDutyListener = onOffDutyListener;
+    }
+
+    public void setOnCancelListener(@Nullable OnCancelListener onCancelListener) {
+        this.onCancelListener = onCancelListener;
+    }
+
+    public boolean isBezierColorOverlay() {
+        return bezierColorOverlay;
+    }
+
+    public void setBezierColorOverlay(boolean bezierColorOverlay) {
+        this.bezierColorOverlay = bezierColorOverlay;
+    }
+
+    public int getBezierColor() {
+        return bezierColor;
+    }
+
+    public void setBezierColor(int bezierColor) {
+        this.bezierColor = bezierColor;
+        bezierView.bezierPaint.setColor(bezierColor);
+    }
+
+    public int getMaxDistance() {
+        return maxDistance;
+    }
+
+    public void setMaxDistance(int maxDistance) {
+        this.maxDistance = maxDistance;
     }
 
     private class BezierView extends View {
@@ -283,6 +322,9 @@ public class OffDutyDelegate {
                     public void onAnimationEnd(Animator animation) {
                         remove();
                         resetView();
+                        if (onCancelListener != null) {
+                            onCancelListener.onCanceled();
+                        }
                     }
                 });
 

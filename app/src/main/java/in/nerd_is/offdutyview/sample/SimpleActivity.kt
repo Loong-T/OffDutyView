@@ -16,29 +16,25 @@
 
 package `in`.nerd_is.offdutyview.sample
 
-import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_simple.*
 
-class MainActivity : AppCompatActivity() {
+class SimpleActivity : AppCompatActivity() {
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_simple)
 
-    btnSimple.setOnClickListener {
-      startActivity(SimpleActivity::class.java)
+        offDutyView.setOnOffDutyListener {
+            Toast.makeText(this, "Off duty!", Toast.LENGTH_SHORT).show()
+        }
+        offDutyView.setOnCancelListener {
+            Toast.makeText(this, "Off duty canceled", Toast.LENGTH_SHORT).show()
+        }
+        btnReset.setOnClickListener {
+            offDutyView.resetView()
+        }
     }
-    btnList.setOnClickListener {
-      startActivity(ListActivity::class.java)
-    }
-    btnCustom.setOnClickListener {
-      startActivity(CustomActivity::class.java)
-    }
-  }
-
-  private fun startActivity(clazz: Class<*>) {
-    startActivity(Intent(this, clazz))
-  }
 }

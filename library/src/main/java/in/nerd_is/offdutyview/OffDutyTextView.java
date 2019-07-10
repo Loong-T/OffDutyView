@@ -58,7 +58,35 @@ public class OffDutyTextView extends TextView {
         delegate.setOnOffDutyListener(listener);
     }
 
+    public void setOnCancelListener(OnCancelListener listener) {
+        delegate.setOnCancelListener(listener);
+    }
+
     public void resetView() {
         delegate.resetView();
+    }
+
+    public boolean isBezierColorOverlay() {
+        return delegate.isBezierColorOverlay();
+    }
+
+    public void setBezierColorOverlay(boolean bezierColorOverlay) {
+        delegate.setBezierColorOverlay(bezierColorOverlay);
+    }
+
+    public int getBezierColor() {
+        return delegate.getBezierColor();
+    }
+
+    public void setBezierColor(int bezierColor) {
+        delegate.setBezierColor(bezierColor);
+    }
+
+    public int getMaxDistance() {
+        return delegate.getMaxDistance();
+    }
+
+    public void setMaxDistance(int maxDistance) {
+        delegate.setMaxDistance(maxDistance);
     }
 }
